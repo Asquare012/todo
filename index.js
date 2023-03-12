@@ -47,18 +47,22 @@ const text = document.querySelector("#text");
 const add = document.querySelector("#add");
 const itemC = document.querySelector("#items-container");
 add.addEventListener("click", () => {
-  itemC.innerHTML += `
+  text.value != ""
+    ? (itemC.innerHTML += `
   <div class = "item">
   <div class="plan">${text.value}</div>
   <div class="icon">
-  <img src="delete.webp" alt="delete" height="25px" width="25px">
+  <img src="delete.webp" alt="delete" height="25px" width="25px" class="remove">
   </div>
-  </div>`;
-});
+  </div>`)
+    : alert("input a todo");
+  text.value = "";
 
-// delete item
-const item = document.querySelector(".item");
-const remove = document.querySelector(".icon");
-remove.addEventListener("click", () => {
-  item.style.display = "none";
+  // const red = document.querySelector(".remove");
+  // const item = document.querySelector(".item");
+  // red.addEventListener("click", () => {
+  //   item.map((list) => {
+  //     return list.remove();
+  //   });
+  // });
 });
